@@ -1,4 +1,3 @@
-from turtle import goto
 import dash
 from dash import html, dcc, dash_table
 import pandas as pd
@@ -51,7 +50,8 @@ table1 = dash_table.DataTable(
             'if': {'row_index': 'odd'},
             'backgroundColor': 'rgb(220, 220, 220)',
         }
-    ], style_header={
+    ], style_
+    er={
         'backgroundColor': 'rgb(210, 210, 210)',
         'color': 'black',
         'fontWeight': 'bold'
@@ -114,7 +114,6 @@ app.layout = html.Div([
 all_stunts = pd.read_csv('https://raw.githubusercontent.com/chahart/bigdatabowl/main/with_epa.csv')
 ## big data bowl games.csv
 games = pd.read_csv('https://raw.githubusercontent.com/chahart/bigdatabowl/main/games.csv')
-print(games.head())
 games = games[['gameId', 'homeTeamAbbr', 'visitorTeamAbbr']]
 all_stunts = all_stunts.merge(games, on='gameId', how='left')
 all_stunts['yardsToEZ'] = all_stunts.absoluteYardlineNumber - 10
