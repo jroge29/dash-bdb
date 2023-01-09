@@ -199,9 +199,42 @@ def visualize_blitz_stunt(play_type, team, common_vs_effective, num_plays, only_
             all_stunts.loc[(all_stunts.stunt_class == play_class[0]) & (all_stunts.defensiveTeam == team)])
     if only_4man:
         stunts = stunts.loc[stunts.manfront == 1]
+    eyedeez = {
+        'ARI': [2021091207, 2244],
+        'ATL': [2021091200, 2399],
+        'BAL': [2021092602, 2501],
+        'BUF': [2021092600, 2441],
+        'CAR': [2021091202, 489],
+        'CHI': [2021092601, 166],
+        'CIN': [2021092607, 3588],
+        'CLE': [2021981209, 1085],
+        'DAL': [2021090900, 97],
+        'DEN': [2021092609, 2352],
+        'DET': [2021092000, 2437],
+        'GB': [2021092000, 201],
+        'HOU': [2021091205, 3151],
+        'IND': [2021091903, 761],
+        'JAX': [2021091904, 444],
+        'KC': [2021091913, 2775],
+        'LA': [2021091908, 2643],
+        'LAC': [2021092604, 1847],
+        'LV': [2021091213, 2881],
+        'MIA': [2021091905, 2261],
+        'MIN': [2021091203, 4528],
+        'NE': [2021092605, 3197],
+        'NO': [2021091211, 921],
+        'NYG': [2021092606, 3339],
+        'NYJ': [2021091202, 1967],
+        'PHI': [2021091200, 4274],
+        'PIT': [2021091201, 1572],
+        'SEA': [2021091204, 1670],
+        'SF': [2021091912, 1746],
+        'TB': [2021090900, 3724],
+        'TEN': [2021091207, 410],
+        'WAS': [2021091600, 2624]}
     ids = stunts.gameplayId.iloc[0].split('_')
-    gameId = int(ids[0])
-    playId = int(ids[1])
+    gameId = eyedeez[team][0]
+    playId = eyedeez[team][1]
     classnum = play_class[0]
     fig_1 = animate_play(all_weeks, plays, players, pff, gameId, playId, classnum)
 
@@ -253,7 +286,7 @@ players = pd.read_csv('https://raw.githubusercontent.com/chahart/bigdatabowl/mai
 # week2 = pd.read_csv('week2.csv')
 # week3 = pd.read_csv('week3.csv')
 # all_weeks = pd.concat([week1,week2,week3])
-all_weeks = pd.read_csv('https://raw.githubusercontent.com/chahart/bigdatabowl/main/modified_weeks.csv')
+all_weeks = pd.read_csv('https://raw.githubusercontent.com/chahart/bigdatabowl/main/new_mod_weeks.csv')
 
 
 # all_weeks_1 = all_weeks[(all_weeks['gameId'] == 2021091207) & (all_weeks['playId'] == 2244)]
