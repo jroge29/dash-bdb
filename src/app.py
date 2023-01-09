@@ -50,8 +50,7 @@ table1 = dash_table.DataTable(
             'if': {'row_index': 'odd'},
             'backgroundColor': 'rgb(220, 220, 220)',
         }
-    ], style_
-    er={
+    ], style_header={
         'backgroundColor': 'rgb(210, 210, 210)',
         'color': 'black',
         'fontWeight': 'bold'
